@@ -225,19 +225,19 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-12 bg-white artistic-shadow rounded-sm border border-slate-50">
-              <h3 className="text-2xl leading-relaxed text-slate-800 font-medium mb-12">
+            <div className="p-12 bg-white artistic-shadow rounded-lg border border-slate-50">
+              <h3 className="text-3xl leading-snug text-slate-800 font-bold mb-14 tracking-tight">
                 {currentQuestion.question}
               </h3>
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-1 gap-5">
                 {currentQuestion.options.map((option, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleAnswer(idx)}
-                    className="text-left px-10 py-6 border border-slate-100 hover:border-slate-800 hover:bg-slate-50 transition-all text-slate-700 hover:text-slate-900 group flex items-center justify-between rounded-md shadow-sm"
+                    className="text-left px-12 py-8 border-2 border-slate-100 hover:border-slate-800 hover:bg-slate-50 transition-all text-slate-900 hover:text-black group flex items-center justify-between rounded-xl shadow-sm bg-white"
                   >
-                    <span className="text-lg font-medium tracking-tight leading-snug pr-4">{option}</span>
-                    <span className="opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0 text-slate-400">→</span>
+                    <span className="text-xl font-bold tracking-tight leading-relaxed pr-6 select-none">{option}</span>
+                    <span className="opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0 text-slate-800 scale-150">→</span>
                   </button>
                 ))}
               </div>
@@ -248,7 +248,7 @@ const App: React.FC = () => {
         {status === 'feedback' && feedback && (
           <div className="space-y-8 fade-in text-center">
             <div className="space-y-10">
-              <div className={`p-12 ${feedback.isCorrect ? 'bg-emerald-50/30' : 'bg-orange-50/20'} artistic-shadow rounded-sm border border-slate-100 text-left relative overflow-hidden`}>
+              <div className={`p-12 ${feedback.isCorrect ? 'bg-emerald-50/30' : 'bg-orange-50/20'} artistic-shadow rounded-lg border border-slate-100 text-left relative overflow-hidden`}>
                 <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none text-slate-400">
                    <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 2L2 22h20L12 2z"/><path d="M12 2l-4 8 4 4 4-4-4-8z"/><circle cx="12" cy="18" r="1"/></svg>
                 </div>
@@ -259,21 +259,21 @@ const App: React.FC = () => {
                     <span className="px-3 py-1 bg-orange-400 text-white text-[10px] font-bold rounded-full uppercase tracking-widest">Keep Going</span>
                   )}
                 </div>
-                <p className="text-xl font-medium leading-relaxed text-slate-800 mb-8 border-l-4 border-slate-800 pl-6">
+                <p className="text-2xl font-bold leading-relaxed text-slate-800 mb-8 border-l-8 border-slate-800 pl-8">
                   {feedback.praise}
                 </p>
-                <div className="h-px bg-slate-100 my-8"></div>
-                <div className="space-y-4 text-slate-600 leading-relaxed font-light">
-                  <p className="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold mb-4 flex items-center gap-2">
-                    <span className="w-4 h-px bg-slate-300"></span>
+                <div className="h-px bg-slate-200 my-8"></div>
+                <div className="space-y-4 text-slate-700 leading-relaxed font-medium">
+                  <p className="text-[11px] uppercase tracking-[0.4em] text-slate-500 font-black mb-4 flex items-center gap-2">
+                    <span className="w-6 h-0.5 bg-slate-400"></span>
                     法律解析
                   </p>
-                  <p className="text-sm">{feedback.explanation}</p>
+                  <p className="text-lg">{feedback.explanation}</p>
                 </div>
               </div>
               <button 
                 onClick={proceed}
-                className="px-16 py-4 bg-slate-800 text-white hover:bg-slate-700 transition-all tracking-[0.3em] text-xs font-bold shadow-2xl"
+                className="px-16 py-5 bg-slate-800 text-white hover:bg-slate-700 transition-all tracking-[0.4em] text-sm font-black shadow-2xl rounded-full"
               >
                 继续攀登
               </button>
@@ -284,7 +284,7 @@ const App: React.FC = () => {
         {status === 'levelComplete' && (
           <div className="text-center space-y-10 fade-in py-12">
             <div className="inline-block px-4 py-1 border border-slate-200 text-[10px] text-slate-400 tracking-[0.3em] uppercase mb-4">Checkpoint</div>
-            <h2 className="text-3xl font-medium text-slate-800 tracking-tight leading-tight px-10">{currentLevel.levelCompletionPraise}</h2>
+            <h2 className="text-4xl font-bold text-slate-800 tracking-tight leading-tight px-10">{currentLevel.levelCompletionPraise}</h2>
             <div className="h-px w-12 bg-slate-300 mx-auto"></div>
             <p className="text-slate-400 text-sm font-light uppercase tracking-widest">Next / 下一关：{currentLevelIdx < LEVELS.length - 1 ? LEVELS[currentLevelIdx + 1].title : "巅峰决战"}</p>
             <button 
@@ -301,20 +301,20 @@ const App: React.FC = () => {
             <div className="space-y-8">
               <div className="inline-block px-4 py-1 border border-slate-200 text-xs text-slate-400 tracking-[0.3em] uppercase mb-4">Summit Success</div>
               <div className="space-y-4">
-                <h2 className="text-6xl font-medium text-slate-800">万物皆有裂痕</h2>
-                <h2 className="text-4xl font-medium text-slate-800">那是光照进来的地方</h2>
+                <h2 className="text-7xl font-bold text-slate-800">万物皆有裂痕</h2>
+                <h2 className="text-5xl font-bold text-slate-800">那是光照进来的地方</h2>
               </div>
-              <div className="max-w-md mx-auto text-slate-500 leading-relaxed font-light text-lg">
+              <div className="max-w-md mx-auto text-slate-500 leading-relaxed font-light text-xl">
                 书涵，攀登已毕。你在国际公法的博弈里，已经展现出了攀岩者挑战极限的坚韧。<br/>
-                <span className="font-bold text-slate-800 block mt-8 text-xl tracking-[0.2em] uppercase">去考试吧，巅峰就在你脚下</span>
+                <span className="font-black text-slate-800 block mt-12 text-2xl tracking-[0.3em] uppercase underline decoration-slate-300 underline-offset-8">去考试吧，巅峰就在你脚下</span>
               </div>
             </div>
             
             <div className="flex flex-col items-center gap-6 pt-10">
-                <div className="text-slate-300 text-xs tracking-widest uppercase">最终成绩: {score} / {totalQuestions}</div>
+                <div className="text-slate-300 text-sm tracking-widest uppercase font-bold">最终成绩: {score} / {totalQuestions}</div>
                 <button 
                   onClick={startLevel}
-                  className="px-8 py-3 border border-slate-200 text-slate-400 hover:text-slate-800 hover:border-slate-800 transition-all text-[10px] tracking-[0.2em] font-bold"
+                  className="px-8 py-3 border border-slate-200 text-slate-400 hover:text-slate-800 hover:border-slate-800 transition-all text-[11px] tracking-[0.3em] font-black"
                 >
                   再攀一次
                 </button>
